@@ -67,6 +67,11 @@ public:
   ///* Sigma point spreading parameter
   double lambda_;
 
+  ///* NIS for LiDAR
+  double NIS_laser_;
+
+  ///* NIS for RADAR
+  double NIS_radar_;
 
   /**
    * Constructor

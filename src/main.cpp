@@ -1,5 +1,6 @@
 #include <uWS/uWS.h>
 #include <iostream>
+#include <fstream>
 #include "json.hpp"
 #include <math.h>
 #include "ukf.h"
@@ -32,6 +33,9 @@ int main()
 
   // Create a Kalman Filter instance
   UKF ukf;
+
+  // clean previous values
+  ofstream out_file_("NIS_values.dat", ofstream::trunc);
 
   // used to compute the RMSE later
   Tools tools;
@@ -105,8 +109,25 @@ int main()
     	  gt_values(3) = vy_gt;
     	  ground_truth.push_back(gt_values);
           
-          //Call ProcessMeasurment(meas_package) for Kalman filter
+        //Call ProcessMeasurment(meas_package) for Kalman filter
     	  ukf.ProcessMeasurement(meas_package);    	  
+
+        //Output the NIS values
+        ofstream out_file_("NIS_values.dat", ofstream::app);
+
+        if (out_file_.is_open()) {
+          if (meas_package.sensor_type_ == MeasurementPackage::RADAR) {
+            out_file_ << ukf.NIS_radar_ << "\n";
+          }
+          else if (meas_package.sensor_type_ == MeasurementPackage::LASER) {
+            out_file_ << ukf.NIS_laser_ << "\n";
+          }
+        }
+        else {
+          std::cout << "Can't open NIS_values.dat" << std::endl;
+        }
+
+        out_file_.close();
 
     	  //Push the current estimated x,y positon from the Kalman filter's state vector
 
@@ -114,7 +135,7 @@ int main()
 
     	  double p_x = ukf.x_(0);
     	  double p_y = ukf.x_(1);
-    	  double v  = ukf.x_(2);
+    	  double v   = ukf.x_(2);
     	  double yaw = ukf.x_(3);
 
     	  double v1 = cos(yaw)*v;
