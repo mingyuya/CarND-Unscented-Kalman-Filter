@@ -6,7 +6,7 @@
 
 [image1]: ./result/UKF_Process.png "UKF_PROCESS"
 [image2]: ./result/result_unscented_kalman_filter.png "SCREENSHOT"
-[imgae3]: ./result/NIS.png "NIS"
+[image3]: ./result/NIS.png "NIS"
 
 ### Brief Description
 
@@ -27,5 +27,6 @@ The compiled program can communicate with the simulator by [uWebSocket](https://
 ### Parameter Tunning : Process Noise
 
 In this project, two process noises - standard deviations of `longitudinal acceleration` and `yaw acceleration` experimentally. To check the consistency of the parameters, I calculated the NIS(Noirmalized Innovation Squared) between the predicted state and the ground truth. The following is the plot of the NIS values earned from final parameters.
+
 
 ![alt_text][image3]
