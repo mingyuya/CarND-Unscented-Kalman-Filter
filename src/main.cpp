@@ -34,7 +34,7 @@ int main()
   // Create a Kalman Filter instance
   UKF ukf;
 
-  // clean previous values
+  // clean previously calculated NIS values
   ofstream out_file_("NIS_values.dat", ofstream::trunc);
 
   // used to compute the RMSE later
@@ -207,90 +207,3 @@ int main()
   }
   h.run();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
