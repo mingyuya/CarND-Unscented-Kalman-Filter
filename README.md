@@ -1,7 +1,7 @@
 # Writeup for P2 of Self-Driving Car Nanodegree Term2: Unscented Kalman Filter
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-### Matt, Min-gyu, Kim
+### Matt, MinGyu, Kim
 ---
 
 [image1]: ./result/UKF_Process.png "UKF_PROCESS"
@@ -10,7 +10,7 @@
 
 ### Brief Description
 
-I built the [Unscented Kalman Filter](http://www.cs.unc.edu/~welch/kalman/media/pdf/Julier1997_SPIE_KF.pdf) which takes inputs from sensor fusion - LiDAR and RADAR). The following figure is the processign flow the filter.
+I built the [Unscented Kalman Filter](http://www.cs.unc.edu/~welch/kalman/media/pdf/Julier1997_SPIE_KF.pdf) which takes inputs from sensor fusion - LiDAR and RADAR). The following figure is the processing flow of the filter.
 
 ![alt_text][image1]
 
